@@ -2,14 +2,11 @@
 
   <PropertyGroup>
     <Description>StackExchange.Redis.Tests</Description>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
-    <TargetFrameworks>$(TargetFramework)</TargetFrameworks>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
     <AssemblyName>StackExchange.Redis.Tests</AssemblyName>
     <PackageId>StackExchange.Redis.Tests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8</PackageTargetFallback>
-    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
@@ -25,17 +22,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0-preview-20170106-08" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="redis-64" Version="3.0.503" />
-    <PackageReference Include="nunit" Version="3.4.1" />
+    <PackageReference Include="nunit" Version="3.7.0" />
     <PackageReference Include="dotnet-test-nunit" Version="3.4.0-beta-1" />
   </ItemGroup>
 
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.1' ">
     <DefineConstants>$(DefineConstants);CORE_CLR</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.1' ">
     <PackageReference Include="System.Console" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Diagnostics.Debug" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Linq.Expressions" Version="$(CoreFxVersion)" />
@@ -43,5 +40,9 @@
     <PackageReference Include="System.Runtime.InteropServices" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Threading.Tasks.Parallel" Version="$(CoreFxVersion)" />
     <PackageReference Include="Microsoft.CSharp" Version="$(CoreFxVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SourceLink.Create.GitHub" Version="2.1.2" />
   </ItemGroup>
 </Project>

@@ -23,4 +23,8 @@
     <PackageReference Include="System.Console" Version="$(CoreFxVersion)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="SourceLink.Create.GitHub" Version="2.1.2" />
+  </ItemGroup>
+
 </Project>

@@ -2,13 +2,11 @@
 
   <PropertyGroup>
     <Description>MigratedBookSleeveTestSuite</Description>
-    <TargetFrameworks>net45;netcoreapp1.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp1.1</TargetFrameworks>
     <AssemblyName>MigratedBookSleeveTestSuite</AssemblyName>
     <PackageId>MigratedBookSleeveTestSuite</PackageId>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">$(PackageTargetFallback);portable-net45+win8</PackageTargetFallback>
-    <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">1.0.4</RuntimeFrameworkVersion>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
@@ -28,20 +26,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0-preview-20170106-08" />
-    <PackageReference Include="nunit" Version="3.4.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="nunit" Version="3.7.0" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.1' ">
     <DefineConstants>$(DefineConstants);PLAT_SAFE_CONTINUATIONS;CORE_CLR</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.1' ">
     <PackageReference Include="System.Console" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Diagnostics.Debug" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Diagnostics.TraceSource" Version="$(CoreFxVersion)" />
@@ -51,6 +44,10 @@
     <PackageReference Include="System.Threading.Tasks.Parallel" Version="$(CoreFxVersion)" />
     <PackageReference Include="Microsoft.CSharp" Version="$(CoreFxVersion)" />
     <PackageReference Include="dotnet-test-nunit" Version="3.4.0-beta-1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SourceLink.Create.GitHub" Version="2.1.2" />
   </ItemGroup>
 
 </Project>
