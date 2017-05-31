@@ -130,7 +130,9 @@ namespace StackExchange.Redis
 
                 var type = asm.GetType("Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment");
 
-                // https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.serviceruntime.roleenvironment.isavailable.aspx                if (!(bool)type.GetProperty("IsAvailable").GetValue(null, null))                    return null;
+                // https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.serviceruntime.roleenvironment.isavailable.aspx
+                if (!(bool)type.GetProperty("IsAvailable").GetValue(null, null))
+                    return null;
 
                 var currentRoleInstanceProp = type.GetProperty("CurrentRoleInstance");
                 var currentRoleInstanceId = currentRoleInstanceProp.GetValue(null, null);

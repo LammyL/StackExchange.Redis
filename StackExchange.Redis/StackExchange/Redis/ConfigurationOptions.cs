@@ -382,9 +382,7 @@ namespace StackExchange.Redis
                 responseTimeout = responseTimeout,
                 defaultDatabase = defaultDatabase,
                 ReconnectRetryPolicy = reconnectRetryPolicy,
-#if !CORE_CLR
-                SslProtocols = SslProtocols,
-#endif
+                SslProtocols = SslProtocols
             };
             foreach (var item in endpoints)
                 options.endpoints.Add(item);

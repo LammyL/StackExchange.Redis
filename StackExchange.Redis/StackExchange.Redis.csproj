@@ -10,7 +10,7 @@
     <PackageTags>Async;Redis;Cache;PubSub;Messaging</PackageTags>
     <OutputTypeEx>library</OutputTypeEx>
     <SignAssembly>False</SignAssembly>
-    <Version>1.2.3-Lamar1</Version>
+    <Version>1.2.3-Lamar2</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>  
   </PropertyGroup>
 
@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
-    <DefineConstants>NETSTANDARD1_6;CORE_CLR;$(DefineConstants)</DefineConstants>
+    <DefineConstants>TRACE;CORE_CLR</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;$(DefineConstants)</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CORE_CLR</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
@@ -35,7 +35,7 @@
     <PackageReference Include="System.IO.FileSystem" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Linq" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Net.NameResolution" Version="$(CoreFxVersion)" />
-    <PackageReference Include="System.Net.Security" Version="$(CoreFxVersion)" />
+    <PackageReference Include="System.Net.Security" Version="4.3.1" />
     <PackageReference Include="System.Net.Sockets" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Reflection.Emit" Version="$(CoreFxVersion)" />
     <PackageReference Include="System.Reflection.Emit.Lightweight" Version="$(CoreFxVersion)" />
@@ -52,6 +52,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Update="NuGet.Build.Tasks.Pack" Version="4.0.0" />
     <PackageReference Update="SourceLink.Create.GitHub" Version="2.1.2" />
   </ItemGroup>
 
